@@ -1,0 +1,18 @@
+server:
+  port: 8081
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: employee_module
+          uri: http://localhost:8082/
+          predicates:
+            - Path=/employee/**
+        - id: consumer_module
+          uri: http://localhost:8083/
+          predicates:
+            - Path=/consumer/**
+
+
+
+
